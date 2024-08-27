@@ -73,6 +73,9 @@ class TikTakToe:
         if self.buttons[0][2]['text'] == self.buttons[1][1]['text'] == self.buttons[2][0]['text'] != '':
             self.update_SiegStatuslabel()
             return True
+        if all(self.buttons[i][j]['text'] != '' for i in range(3) for j in range(3)):
+            self.statuslabel.config(text="Unentschieden!", style='GameOverLabel.TLabel')
+            return True
 
     def build_menu(self):
         self.menu = tk.Menu(self.root)
